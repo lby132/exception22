@@ -5,8 +5,8 @@ import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
-
-@Component
+//WebServerFactoryCustomizer를 쓰지 않으면 자동으로 BasicErrorController가 호출된다.
+//@Component
 public class WebServerCustomizer implements WebServerFactoryCustomizer<ConfigurableWebServerFactory> {
 
     @Override
