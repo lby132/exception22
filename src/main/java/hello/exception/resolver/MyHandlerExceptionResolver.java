@@ -13,17 +13,15 @@ public class MyHandlerExceptionResolver implements HandlerExceptionResolver {
 
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
-
-
-            try {
-                if (ex instanceof IllegalArgumentException) {
-                    log.info("IllegalArgumentException resolver to 400");
-                    response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-                    return new ModelAndView();
-                }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+        try {
+            if (ex instanceof IllegalArgumentException) {
+                log.info("IllegalArgumentException resolver to 400");
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+                return new ModelAndView();
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         return null;
     }
